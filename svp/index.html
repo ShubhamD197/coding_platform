@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Code Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>window.jsPDF = window.jspdf.jsPDF;</script>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="home.html">CodeBOUNTY</a>
+            </div>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="python-questions.html">Python</a>
+                <a href="java-questions.html">Java</a>
+                <a href="cpp-questions.html">C++</a>
+                <a href="c-questions.html">C</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="header">
+            <h1>Programming Lab</h1>
+            <p>Execute code in multiple languages with an interactive terminal</p>
+        </div>
+
+        <div class="main-content">
+            <div class="problem-section">
+                <div class="problem-header">
+                    <h2>Problem Description</h2>
+                </div>
+                <div class="problem-content">
+                    <div class="problem-description">
+                        <h3>Description</h3>
+                        <p id="problemText">Write a program that adds two numbers and prints the result.</p>
+                    </div>
+                    <div class="input-output-section">
+                        <div class="example-input">
+                            <h3>Example Input</h3>
+                            <pre id="exampleInput">10 20</pre>
+                        </div>
+                        <div class="expected-output">
+                            <h3>Expected Output</h3>
+                            <pre id="expectedOutput">The sum of 10 and 20 is 30</pre>
+                        </div>
+                    </div>
+                    <button id="submitButton" onclick="submitSolution()" class="submit-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 10 4 15 9 20"></polyline>
+                            <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+                        </svg>
+                        Submit Solution
+                    </button>
+                    <button id="downloadButton" onclick="generatePDF()" class="download-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <div class="editor-header">
+                    <div class="language-selector">
+                        <label for="language">Language:</label>
+                        <select id="language">
+                            <option value="python">Python</option>
+                            <option value="cpp">C++</option>
+                            <option value="c">C</option>
+                            <option value="java">Java</option>
+                        </select>
+                    </div>
+                    
+                    <button id="runButton" onclick="runCode()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        Run
+                    </button>
+                </div>
+                
+                <div class="code-container">
+                    <textarea id="codeEditor" placeholder="Write your code here..."></textarea>
+                </div>
+                
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span>Terminal</span>
+                        <div class="terminal-buttons">
+
+                            <button id="clearButton" onclick="clearTerminal()">Clear</button>
+                        </div>
+                    </div>
+                    <div id="terminal">
+                        <div id="terminal-output"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="pdf-generator.js"></script>
+</body>
+</html>

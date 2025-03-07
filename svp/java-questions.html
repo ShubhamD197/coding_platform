@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Programming Exercises</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .questions-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .question-card {
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .question-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+        }
+        
+        .question-body {
+            padding: 1.5rem;
+        }
+        
+        .question-body p {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .easy {
+            background-color: #e3fcef;
+            color: #0d8a53;
+        }
+        
+        .medium {
+            background-color: #fff8e6;
+            color: #b7791f;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            border: none;
+            border-radius: var(--radius);
+            padding: 0.6rem 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 2rem;
+            text-decoration: none;
+        }
+        
+        .back-btn:hover {
+            background-color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="home.html">CodeBOUNTY</a>
+            </div>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="python-questions.html">Python</a>
+                <a href="java-questions.html">Java</a>
+                <a href="cpp-questions.html">C++</a>
+                <a href="c-questions.html">C</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="header">
+            <h1>Java Programming Exercises</h1>
+            <p>Practice your Java skills with these coding challenges</p>
+        </div>
+        
+        <div class="main-content" style="flex-direction: column; padding: 2rem;">
+            <a href="home.html" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Languages
+            </a>
+            
+            <div class="questions-container">
+                <!-- Question 1 -->
+                <div class="question-card" onclick="loadQuestion('java', 'Hello World', 'Write a Java program that reads \'Hello World\' as input and prints it to the console.', 'Hello World', 'Hello World')">
+                    <div class="question-header">
+                        <span>Question 1: Hello World</span>
+                        <span class="difficulty easy">Easy</span>
+                    </div>
+                    <div class="question-body">
+                        <p>Write a Java program that reads 'Hello World' as input and prints it to the console.</p>
+                        <p><strong>Input format:</strong> A string 'Hello World'</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="question-card" onclick="loadQuestion('java', 'Sum of Two Numbers', 'Write a Java program that takes two integers as input and prints their sum.', '5 7', 'The sum of 5 and 7 is 12')">
+                    <div class="question-header">
+                        <span>Question 2: Sum of Two Numbers</span>
+                        <span class="difficulty easy">Easy</span>
+                    </div>
+                    <div class="question-body">
+                        <p>Write a Java program that takes two integers as input and prints their sum.</p>
+                        <p><strong>Input format:</strong> Two space-separated integers</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="question-card" onclick="loadQuestion('java', 'Check Even or Odd', 'Write a Java program that takes a number as input and prints whether it is even or odd.', '7', 'The number 7 is odd')">
+                    <div class="question-header">
+                        <span>Question 3: Check Even or Odd</span>
+                        <span class="difficulty easy">Easy</span>
+                    </div>
+                    <div class="question-body">
+                        <p>Write a Java program that takes a number as input and prints whether it is even or odd.</p>
+                        <p><strong>Input format:</strong> A single integer</p>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="question-card" onclick="loadQuestion('java', 'Factorial Calculation', 'Write a Java program that calculates the factorial of a given number.', '5', 'The factorial of 5 is 120')">
+                    <div class="question-header">
+                        <span>Question 4: Factorial Calculation</span>
+                        <span class="difficulty medium">Medium</span>
+                    </div>
+                    <div class="question-body">
+                        <p>Write a Java program that calculates the factorial of a given number.</p>
+                        <p><strong>Input format:</strong> A single positive integer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function loadQuestion(language, title, description, input, output) {
+            // Store question details in localStorage
+            localStorage.setItem('questionLanguage', language);
+            localStorage.setItem('questionTitle', title);
+            localStorage.setItem('questionDescription', description);
+            localStorage.setItem('questionInput', input);
+            localStorage.setItem('questionOutput', output);
+            
+            // Navigate to the coding dashboard
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
